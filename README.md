@@ -62,10 +62,19 @@ Dataset source: https://www.kaggle.com/datasets/nehalbirla/vehicle-dataset-from-
 
 ## Evaluation Metrics
 
-- MAE
-- RMSE
-- R2
-- MAPE
+### XGBoost
+
+- MAE: 82260.40
+- RMSE: 154427.03
+- R2: 0.97
+- MAPE: 0.16
+
+### Linear Regression
+
+- MAE: 69512.38
+- RMSE: 151643.64
+- R2: 0.97
+- MAPE: 0.16
 
 ## Türkçe Açıklama
 
