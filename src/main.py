@@ -22,7 +22,7 @@ class ModelInput(BaseModel):
     engine: float
     seats: float = 5
     fuel: str = "Petrol"
-    transmission: str = "Manuel"
+    transmission: str = "Manual"
     owner: str = "First Owner"
     seller_type: str = "Individual"
 
@@ -31,14 +31,14 @@ def homePage():
     return {"message": "API is working! You can go /docs adress to predict"}
 
 @app.post("/predict/xgboost", description="This endpoint predict vehicle prices with XGBoost model")
-def predict_vehicle_price(data: ModelInput):
+def predict_xgboost(data: ModelInput):
     new_data = pd.DataFrame([data.model_dump()])
     prediction = xgboost_model.predict(new_data)
     
     return {"Vehicle_Price": round(float(np.expm1(prediction[0])),2)}
 
 @app.post("/predict/linear_regression", description="This endpoint predict vehicle prices with Linear Regression model")
-def predict_vehicle_price(data: ModelInput):
+def predict_linear(data: ModelInput):
     new_data = pd.DataFrame([data.model_dump()])
     prediction = linRegr_model.predict(new_data)
 

@@ -25,7 +25,7 @@ df = pd.read_csv("../data/data.csv")
 # FEATURE ENGINEERING
 
 df["brand"] = df["name"].apply(lambda x: x.split(" ")[0])
-df["model"] = df["name"].apply(lambda x: " ".join(x)[1:])
+df["model"] = df["name"].apply(lambda x: " ".join(x.split(" ")[1:]))
 
 df["engine"] = df["engine"].str.replace(" CC","").astype(float)
 
